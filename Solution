@@ -49,7 +49,7 @@ for x in a:
         c.append(x)
 print(c)
 
-#Challenge 6
+#Challenge 6 (1)
 a = input("Please input a string: ")
 b = list(reversed(a))
 if a == b:
@@ -57,9 +57,39 @@ if a == b:
 else:
     print("The string is not a palindrome")
 
-#Challenge 7
+#Challenge 7 (1/2)
 a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 b = [x for x in a if 0 == x % 2]
 print(b)
 
-#Challenge 8 
+#Challenge 8 (1)
+import random
+
+while True:
+    user_input = input("Choose between rock, paper or scissors: ")
+    computer_input = ["rock", "paper", "scissors"]
+    random.choice(computer_input)
+    if user_input == computer_input:
+        print("It is a draw!")
+    elif user_input == "rock":
+        if computer_input == "scissors":
+            print("User wins!")
+        else:
+            print("Computer wins!")
+    elif user_input == "paper":
+        if computer_input == "rock":
+            print("User wins!")
+        else:
+            print("Computer wins!")
+    elif user_input == "rock":
+        if computer_input == "scissors":
+            print("User wins!")
+        else:
+            print("Computer wins!")
+    usr_command = input("Enter your command: ")
+    if usr_command == "quit":
+        break
+    else:
+        print("You typed " + usr_command)
+
+
