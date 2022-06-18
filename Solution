@@ -1,3 +1,46 @@
+#Hello people, this is my best shot at Practice Python. Here is the link: practicepython.org
+
+#Challenge 1 (1)
+
+age = input("What is your age: ")
+name = input("What is your name: ")
+year = input("What is the current year: ")
+a = 100-int(age)
+b = int(year)+a
+print("Hi "+name+", in "+str(b)+", you will be 100 years old!")
+
+#Challenge 2 (1/2)
+
+num = input("Please give a number: ")
+mod = int(num) % 2
+if 0 == mod:
+    print("The number is even.")
+else:
+    print("The number is odd.")
+
+#Challenge 3 (1)
+
+a = [1, 1, 2, 3, 4, 5, 6, 7, 11]
+for i in a:
+    if 10 > int(i):
+        print(str(i)+" is less than 10.")
+
+#Challenge 4 (0)
+#Best attempt
+#a = input("Please input a number: ")
+#for x in a:
+    #if x % 2 == 0:
+        #print(x)
+
+#Answer
+num = int(input("Please choose a number to divide: "))
+listRange = list(range(1,num+1))
+divisorList = []
+for number in listRange:
+    if num % number == 0:
+        divisorList.append(number)
+
+#Challenge 5 (1/2)
 a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 c = []
@@ -5,3 +48,11 @@ for x in a:
     if x in b:
         c.append(x)
 print(c)
+
+#Challenge 6
+a = input("Please input a string: ")
+b = list(reversed(a))
+if a == b:
+    print("The string is a palindrome.")
+else:
+    print("The string is not a palindrome")
