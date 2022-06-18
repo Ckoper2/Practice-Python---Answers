@@ -56,3 +56,10 @@ if a == b:
     print("The string is a palindrome.")
 else:
     print("The string is not a palindrome")
+
+#Challenge 7
+a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+b = [x for x in a if 0 == x % 2]
+print(b)
+
+#Challenge 8 
