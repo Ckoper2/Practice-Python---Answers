@@ -93,3 +93,79 @@ while True:
         print("You typed " + usr_command)
 
 
+#Challenge 9 (1/2)
+
+import random
+play = True
+comp = random.randint(1, 9)
+while play:
+    guess = input("Guess a number from 1-9: ")
+    if comp < int(guess):
+        print("Your guess is too high.")
+    elif comp > int(guess):
+        print("Your guess is too low.")
+    else:
+        print("You guessed the number!")
+again=str(input("Do you want to play again, type yes or no: "))
+if again == "no":
+    play = False
+else:
+    play = True
+
+#Challenge 10 (1)
+
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+c = [x for x in a if x in b]
+print(c)
+
+#Challenge 11 (1)
+
+num = input("Please give a number: ")
+for i in range(2, int(num)):
+    if int(num) % i == 0:
+        print("That is not a prime number.")
+    else:
+        print("That is a prime number.")
+    break
+
+#Challenge 12 (1)
+
+a = [5, 10, 15, 20, 25]
+b = a[0]
+c = a[-1]
+print("The first and last element of the string is "+str(b)+" and "+str(c)+".")
+
+#Challenge 13 (Best Attempt) (0)
+
+inp = input("How many Fibonnaci numbers do you want: ")
+if inp < str(0):
+    print("Invalid input.")
+elif inp == 0:
+    print("0")
+elif inp == 1 or inp == 2:
+    print("1")
+else:
+    (int(inp)-1) + (int(inp)-2)
+print(inp)
+
+#Answer by Anonymous 
+def gen_fib():
+    count = int(input("How many fibonacci numbers would you like to generate? "))
+    i = 1
+    if count == 0:
+        fib = []
+    elif count == 1:
+        fib = [1]
+    elif count == 2:
+        fib = [1,1]
+    elif count > 2:
+        fib = [1,1]
+        while i < (count - 1):
+            fib.append(fib[i] + fib[i-1])
+            i += 1
+
+    return fib
+
+
+
