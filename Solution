@@ -167,5 +167,57 @@ def gen_fib():
 
     return fib
 
+# Challenge 14 (1)
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+c = set()
+for x in a:
+    if x == x:
+        c.add(x)
+print(c)
 
+# Challenge 15 (1)
+a = input("Please give a sentence: ")
+b = a.split(" ")
+b.reverse()
+c = ' '.join(map(str, b))
+print(c)
 
+# Challenge 16 (1)
+import random
+import string
+
+a = list(string.ascii_lowercase)
+A = list(string.ascii_uppercase)
+symbol = ['+', '-', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '[', ']', '<', '>']
+list = ['a', 'banana', 'your', 'mother', 'isa', 'contradictory', 'likes', 'trains', 'chicken', 'faker', 'hack', 'kacky']
+weak = []
+strong = []
+print("Type in strong for a strong password and weak for a weak password.")
+while True:
+    user = input("Do you want a strong or weak password: ")
+    if user == "weak":
+        for i in range(2):
+            List = random.choice(list)
+            weak.append(List)
+            space = ''.join(map(str, weak))
+        print(space)
+        if 2 == len(weak):
+            weak.clear()
+        else:
+            break
+    elif user == "strong":
+        for i in range(3):
+            w = random.choice(string.ascii_lowercase)
+            x = random.choice(string.ascii_uppercase)
+            y = random.randint(0, 9)
+            z = random.choice(symbol)
+            strong.append(w)
+            strong.append(x)
+            strong.append(y)
+            strong.append(z)
+            spaces = ''.join(map(str, strong))
+        print(spaces)
+        if 12 == len(strong):
+            strong.clear()
+        else:
+            break
