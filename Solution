@@ -221,3 +221,183 @@ while True:
             strong.clear()
         else:
             break
+
+
+# Challenge 15 (1)
+a = input("Please give a sentence: ")
+b = a.split(" ")
+b.reverse()
+c = ' '.join(map(str, b))
+print(c)
+
+# Challenge 16 (1)
+import random
+import string
+
+a = list(string.ascii_lowercase)
+A = list(string.ascii_uppercase)
+symbol = ['+', '-', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '[', ']', '<', '>']
+list = ['a', 'banana', 'your', 'mother', 'isa', 'contradictory', 'likes', 'trains', 'chicken', 'faker', 'hack', 'kacky']
+weak = []
+strong = []
+print("Type in strong for a strong password and weak for a weak password.")
+while True:
+    user = input("Do you want a strong or weak password: ")
+    if user == "weak":
+        for i in range(2):
+            List = random.choice(list)
+            weak.append(List)
+            space = ''.join(map(str, weak))
+        print(space)
+        if 2 == len(weak):
+            weak.clear()
+        else:
+            break
+    elif user == "strong":
+        for i in range(3):
+            w = random.choice(string.ascii_lowercase)
+            x = random.choice(string.ascii_uppercase)
+            y = random.randint(0, 9)
+            z = random.choice(symbol)
+            strong.append(w)
+            strong.append(x)
+            strong.append(y)
+            strong.append(z)
+            spaces = ''.join(map(str, strong))
+        print(spaces)
+        if 12 == len(strong):
+            strong.clear()
+        else:
+            break
+
+# Challenge 17 (1)
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://www.nytimes.com"
+r = requests.get(url)
+r_html = r.text
+soup = BeautifulSoup(r_html, features="html.parser")
+a = soup.find(class_= "indicate-hover css-vip0cf")
+b = ' '.join(map(str, a))
+print(b)
+c = soup.find(class_= "indicate-hover css-1pvrrwb")
+d = ' '.join(map(str, c))
+print(d)
+e = soup.find(class_= "indicate-hover css-1n70gp3")
+f = ' '.join(map(str, e))
+print(f)
+g = soup.find(class_= "indicate-hover css-1tn3yik")
+h = ' '.join(map(str, g))
+print(h)
+i = soup.find(class_= "indicate-hover css-5fzt5q")
+j = ' '.join(map(str, i))
+print(j)
+k = soup.find(class_= "indicate-hover css-1yxzums")
+l = ' '.join(map(str, k))
+print(l)
+m = soup.find(class_= "indicate-hover css-1ux8g1k")
+n = ' '.join(map(str, m))
+print(n)
+q = soup.find(class_= "indicate-hover css-11z23xz")
+r = ' '.join(map(str, q))
+print(r)
+"""
+# Challenge 18 (1/2)
+"""
+import random
+
+Bulls = 0
+Cows = 0
+nu = []
+print("Game: Cows and Bulls")
+user = input("Please input a 4 digit number (put a comma between each number and no spaces): ")
+a = user.split(",")
+for i in range(4):
+    b = random.randint(0, 9)
+    nu.append(str(b))
+if i in nu == i in user:
+    Bulls += 1
+    print(Bulls)
+elif nu[:0] == user[:0]:
+    Cows += 1
+    print(Cows)
+elif nu[:1] == user[:1]:
+    Cows += 1
+    print(Cows)
+elif nu[:2] == user[:2]:
+    Cows += 1
+    print(Cows)
+elif nu[:3] == user[:3]:
+    Cows += 1
+    print(Cows)
+elif not str(i) <= str(i) in str(nu) in user:
+    print("No")
+"""
+# Answer:
+import random 
+
+def compare_numbers(number, user_guess):
+    cowbull = [0,0] #cows, then bulls
+    for i in range(len(number)):
+        if number[i] == user_guess[i]:
+            cowbull[1]+=1
+        else:
+            cowbull[0]+=1
+    return cowbull
+
+if __name__=="__main__":
+    playing = True #gotta play the game
+    number = str(random.randint(0,9999)) #random 4 digit number
+    guesses = 0
+
+    print("Let's play a game of Cowbull!") #explanation
+    print("I will generate a number, and you have to guess the numbers one digit at a time.")
+    print("For every number in the wrong place, you get a cow. For every one in the right place, you get a bull.")
+    print("The game ends when you get 4 bulls!")
+    print("Type exit at any prompt to exit.")
+
+    while playing:
+        user_guess = input("Give me your best guess!")
+        if user_guess == "exit":
+            break
+        cowbullcount = compare_numbers(number,user_guess)
+        guesses+=1
+
+        print("You have "+ str(cowbullcount[0]) + " cows, and " + str(cowbullcount[1]) + " bulls.")
+
+        if cowbullcount[1]==4:
+            playing = False
+            print("You win the game after " + str(guesses) + "! The number was "+str(number))
+            break #redundant exit
+        else:
+            print("Your guess isn't quite right, try again.")
+
+# Challenge 19 (1)
+
+import textwrap
+import requests
+from bs4 import BeautifulSoup
+
+w = 125
+url = "https://www.vanityfair.com/style/society/2014/06/monica-lewinsky-humiliation-culture"
+r = requests.get(url)
+r_html = r.text
+soup = BeautifulSoup(r_html, features="html.parser")
+s = soup.get_text()
+s = str(s)
+print(textwrap.fill(s,w))
+
+# Challenge 20 (1)
+def find(ordered_list, element_to_find):
+    if __name__ == "__main__":
+        b = int(input("Please give a number: "))
+        b = [str(b)]
+        for x in a:
+            if x in b:
+                return True
+        return False
+
+a = ['1', '2', '3', '4']
+print(find(a, 5))
+print(find(a, 4))
