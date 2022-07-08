@@ -401,3 +401,232 @@ def find(ordered_list, element_to_find):
 a = ['1', '2', '3', '4']
 print(find(a, 5))
 print(find(a, 4))
+
+# Challenge 21 (1)
+"""
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://www.nytimes.com"
+r = requests.get(url)
+r_html = r.text
+soup = BeautifulSoup(r_html, features="html.parser")
+a = soup.find(class_= "indicate-hover css-vip0cf")
+b = ' '.join(map(str, a))
+print(b)
+c = soup.find(class_= "indicate-hover css-1pvrrwb")
+d = ' '.join(map(str, c))
+print(d)
+e = soup.find(class_= "indicate-hover css-1n70gp3")
+f = ' '.join(map(str, e))
+print(f)
+g = soup.find(class_= "indicate-hover css-1tn3yik")
+h = ' '.join(map(str, g))
+print(h)
+i = soup.find(class_= "indicate-hover css-5fzt5q")
+j = ' '.join(map(str, i))
+print(j)
+k = soup.find(class_= "indicate-hover css-1yxzums")
+l = ' '.join(map(str, k))
+print(l)
+m = soup.find(class_= "indicate-hover css-1ux8g1k")
+n = ' '.join(map(str, m))
+print(n)
+o = soup.find(class_= "indicate-hover css-11z23xz")
+p = ' '.join(map(str, o))
+print(p)
+q = [b, d, f, h, j, l, n, p]
+with open('a', 'w') as open_file:
+    open_file.write(str(q))
+    """
+
+# Challenge 22 Best Attempt (0)
+"""
+a = "Darth"
+b = "Lea"
+d = 0
+e = 0
+with open('a', 'r') as open_file:
+    c = open_file.read()
+for x in c:
+    if a in c:
+        d += 1
+    if a not in c:
+        e += 1
+print("There are " + str(d) + " with the name 'Darth' and " + str(e) + " with the name 'Lea'. ")
+"""
+
+# Answer
+"""
+counter_dict = {}
+with open('a') as f:
+	line = f.readline()
+	while line:
+		line = line[3:-26]
+		if line in counter_dict:
+			counter_dict[line] += 1
+		else:
+			counter_dict[line] = 1
+		line = f.readline()
+
+print(counter_dict)
+"""
+
+# Doesn't work?
+# 17/23
+# Challenge 23 1/2
+"""
+z = []
+with open('a') as open_file:
+    a = open_file.readline()
+    while a:
+        z.append(int(a))
+        a = open_file.readline()
+
+y = []
+with open('b') as open_fil:
+    b = open_fil.readline()
+    while b:
+        y.append(int(b))
+        b = open_fil.readline()
+
+w = [elem for elem in z if elem in y]
+print(w)
+"""
+# Challenge 24 (0)
+"""
+a = " --- "
+b = "|"
+c = "    |"
+d = "|   |"
+def gameboardbox():
+    print(a)
+    print(b)
+    print(a)
+def gameboardsidepiece():
+    print(c)
+def gameboard():
+    print(d)
+
+gameboardbox()
+"""
+
+# Answer
+# Does not work
+"""
+def print_horiz_line():
+    print(" --- " * board_size)
+
+def print_vert_line():
+    print("|   " * (board_size + 1))
+
+if __name__ == "__main__":
+    board_size = int(input("What size of game board? "))
+
+for index in range(board_size):
+    print_horiz_line()
+    print_vert_line()
+    print_horiz_line()
+"""
+# 17 1/2/25
+# Challenge 25
+import random
+import time
+
+# user_int = 100 ,user = 56 or 87, computer_input = a = 50, b = 50. 1-12, 13-25, 26-37, 37-49, 50-62, 63-75, 76-88, 89-100
+print("Welcome to the Guessing Game!")
+time.sleep(2)
+print("You are going to give a number 1-100 and the computer has to guess it!")
+time.sleep(2)
+print("Input h if the number is higher than your guess and l if the number is lower than your guess.")
+time.sleep(2)
+print("Input p if the computer guessed your number!")
+time.sleep(2)
+print("Input l if you want to give up!")
+time.sleep(2)
+print("If your first hint is h and your next hint is l, put hl on the second input")
+time.sleep(2)
+print("Have fun!")
+time.sleep(2)
+def guessing():
+    guess = 0
+    user_int = 100
+    user = int(input("Please enter a number between " + str(user_int) + " for the computer to guess: "))
+    a = computer_input = int(user_int) / 2
+    print(a)
+    while True:
+        if __name__ == '__main__':
+            user_ = input("Is the number higher, lower or perfect: ").lower()
+            if user_ == "h":
+                b = (computer_input / 2) + int(a)  # 75
+                print(b)
+                guess += 1
+            elif user_ == "hl":
+                g = ((computer_input / 2) + int(a) + computer_input) / 2 + (computer_input / 100)  # 62.5
+                print(g)
+                guess += 1
+            elif user_ == "hh":
+                h = (computer_input / 2) + int(a) + computer_input / 4  # 87.5
+                print(h)
+                guess += 1
+            elif user_ == "hhh":
+                z = random.randint(89, int(user_int))
+                print(z)
+                guess += 1
+            elif user_ == "hhl":
+                y = random.randint(76, 88)
+                print(y)
+                guess += 1
+            elif user_ == "hlh":
+                x = random.randint(63, 75)
+                print(x)
+                guess += 1
+            elif user_ == "hll":
+                w = random.randint(50, 62)
+                print(w)
+                guess += 1
+            elif user_ == "l":
+                c = (computer_input / 2)
+                print(c)
+                guess += 1
+            elif user_ == "lh":
+                d = ((computer_input * 3) / 4) + (computer_input / 100)
+                print(d)
+                guess += 1
+            elif user_ == "ll":
+                e = computer_input / 4
+                print(e)
+                guess += 1
+            elif user_ == "lll":
+                f = random.randint(1, 12)
+                print(f)
+                guess += 1
+            elif user_ == "llh":
+                l = random.randint(13, 25)
+                print(l)
+                guess += 1
+            elif user_ == "lhl":
+                m = random.randint(26, 37)
+                print(m)
+                guess += 1
+            elif user_ == "lhh":
+                n = random.randint(38, 49)
+                print(n)
+                guess += 1
+            elif user_ == "l":
+                break
+            elif user_ == "p":
+                print("That's quick, would you like to play again?")
+                time.sleep(3)
+                o = input("Press Y if you want to play again and press N to leave:")
+                if o == "Y":
+                    sys.path(guessing())
+                else:
+                    break
+            if guess > 15:
+                print("The computer took too many tries!")
+                break
+    print("The number of tries the computer took to guess your number is " + str(guess) + ".")
+guessing()
+
+
