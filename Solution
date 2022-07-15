@@ -777,4 +777,20 @@ while True:
     print(game)
     continue
 
+#Challenge 28
+user = input("Please input three numbers. Input them like (25 12 45): ")
+z = user.split()
+a, b, c = z
+if a > b:
+    if a > c:
+        print(a+" is the largest number between the three numbers.")
+    elif a < c:
+        print(c+" is the largest number between the three numbers.")
+elif a < b:
+    if b > c:
+        print(b+" is the largest number between the three numbers.")
+    elif b < c:
+        print(c+" is the largest number between the three numbers.")
+elif a == b == c:
+    print(a+" is the largest number between the three numbers. However, the three numbers are the same.")
 
