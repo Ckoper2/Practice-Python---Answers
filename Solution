@@ -794,3 +794,371 @@ elif a < b:
 elif a == b == c:
     print(a+" is the largest number between the three numbers. However, the three numbers are the same.")
 
+#Challenge 29 (1/2) Best Shot
+
+def drawboard(kamal):
+    kamal = int(kamal)
+    i = 0
+    ho = "--- "
+    ve = "|   "
+    ho = ho * kamal
+    ve = ve * (kamal + 1)
+    while i < kamal + 1:
+        print(ho)
+        if not (i == kamal):
+            print(ve)
+        i += 1
+drawboard(3)
+print("Please inout your move by row, column. Ex: 1, 3 is the top right corner and 2, 2 is the centre of the board.")
+while True:
+    game = [["0", '0', '0'],
+            ['0', '0', '0'],
+            ['0', '0', '0']]
+    a, b, c = game
+    d = a[0]
+    e = b[0]
+    f = c[0]
+    g = a[1]
+    h = b[1]
+    i = c[1]
+    j = a[2]
+    k = b[2]
+    l = c[2]
+
+    user = input("What is your move: ")
+
+    for i in a:
+        if user == "1,1" or user == "1, 1":
+            if a[0] == "o":
+                print("The position is occupied!")
+            else:
+                a[0] = 'x'
+        if user == '1,2' or user == '1, 2':
+            if a[1] == "o":
+                print("The position is occupied!")
+            else:
+                a[1] = 'x'
+        if user == '1,3' or user == '1, 3':
+            if a[2] == 'o':
+                print("The position is occupied!")
+            else:
+                a[2] = 'x'
+
+
+    for i in b:
+        if user == "2,1" or user == "2, 1":
+            if b[0] == 'o':
+                print("Th2 position is occupied!")
+            else:
+                b[0] = 'x'
+        if user == '2,2' or user == '2, 2':
+            if b[1] == 'o':
+                print("ThIS position is occupied!")
+            else:
+                b[1] = 'x'
+        if user == '2,3' or user == '2, 3':
+            if b[2] == 'o':
+                print("ThIS position is occupied!")
+            else:
+                b[2] = 'x'
+
+
+    for i in c:
+        if user == "3,1" or user == "3, 1":
+            if c[0] == "o":
+                print("This position is occupied!")
+            else:
+                c[0] = 'x'
+        if user == '3,2' or user == '3, 2':
+             if c[1] == "o":
+                print("This position is occupied!")
+             else:
+                c[1] = 'x'
+        if user == '3,3' or user == '3, 3':
+            if c[2] == 'o':
+                print("This position is occupied!")
+            else:
+                c[2] = 'x'
+    print(game)
+
+    oppo = input("Opponent! What is your move: ")
+
+    for i in a:
+        if oppo == "1,1" or oppo == "1, 1":
+            if a[0] == "x":
+                print("The position is occupied!")
+            else:
+                a[0] = 'o'
+        if oppo == '1,2' or oppo == '1, 2':
+            if a[1] == "x":
+                print("The position is occupied!")
+            else:
+                a[1] = 'o'
+        if oppo == '1,3' or oppo == '1, 3':
+            if a[2] == 'x':
+                print("The position is occupied!")
+            else:
+                a[2] = 'o'
+
+
+    for i in b:
+        if oppo == "2,1" or oppo == "2, 1":
+            if b[0] == 'x':
+                print("Th2 position is occupied!")
+            else:
+                b[0] = 'o'
+        if oppo == '2,2' or oppo == '2, 2':
+            if b[1] == 'x':
+                print("ThIS position is occupied!")
+            else:
+                b[1] = 'o'
+        if oppo == '2,3' or oppo == '2, 3':
+            if b[2] == 'x':
+                print("ThIS position is occupied!")
+            else:
+                b[2] = 'o'
+
+
+    for i in c:
+        if oppo == "3,1" or oppo == "3, 1":
+            if c[0] == "x":
+                print("This position is occupied!")
+            else:
+                c[0] = 'o'
+        if oppo == '3,2' or oppo == '3, 2':
+            if c[1] == "x":
+                print("This position is occupied!")
+            else:
+                c[1] = 'o'
+        if oppo == '3,3' or oppo == '3, 3':
+            if c[2] == 'x':
+                print("This position is occupied!")
+            else:
+                c[2] = 'o'
+    print(game)
+    continue
+
+
+#Answer: Check Later
+
+def draw_line(width, edge, filling):
+    print(filling.join([edge] * (width + 1)))
+
+
+def display_winner(player):
+    if player == 0:
+        print("Tie")
+    else:
+        print("Player " + str(player) + " wins!")
+
+def check_row_winner(row):
+    
+#Return the player number that wins for that row.
+#If there is no winner, return 0.
+
+    if row[0] == row[1] and row[1] == row[2]:
+        return row[0]
+    return 0
+
+def get_col(game, col_number):
+    return [game[x][col_number] for x in range(3)]
+
+def get_row(game, row_number):
+    return game[row_number]
+
+def check_winner(game):
+    game_slices = []
+    for index in range(3):
+        game_slices.append(get_row(game, index))
+        game_slices.append(get_col(game, index))
+
+    # check diagonals
+    down_diagonal = [game[x][x] for x in range(3)]
+    up_diagonal = [game[0][2], game[1][1], game[2][0]]
+    game_slices.append(down_diagonal)
+    game_slices.append(up_diagonal)
+
+    for game_slice in game_slices:
+        winner = check_row_winner(game_slice)
+        if winner != 0:
+            return winner
+
+    return winner
+
+def start_game():
+    return [[0, 0, 0] for x in range(3)]
+
+def display_game(game):
+    d = {2: "O", 1: "X", 0: "_"}
+    draw_line(3, " ", "_")
+    for row_num in range(3):
+        new_row = []
+        for col_num in range(3):
+            new_row.append(d[game[row_num][col_num]])
+        print("|" + "|".join(new_row) + "|")
+
+
+def add_piece(game, player, row, column):
+    
+#game: game state
+#player: player number
+#row: 0-index row
+#column: 0-index column
+    
+    game[row][column] = player
+    return game
+
+def check_space_empty(game, row, column):
+    return game[row][column] == 0
+
+def convert_input_to_coordinate(user_input):
+    return user_input - 1
+
+def switch_player(player):
+    if player == 1:
+        return 2
+    else:
+        return 1
+
+def moves_exist(game):
+    for row_num in range(3):
+        for col_num in range(3):
+            if game[row_num][col_num] == 0:
+                return True
+    return False
+
+
+if __name__ == '__main__':
+    game = start_game()
+    display_game(game)
+    player = 1
+    winner = 0  # the winner is not yet defined
+
+    # go on forever
+    while winner == 0 and moves_exist(game):
+        print("Currently player: " + str(player))
+        available = False
+        while not available:
+            row = convert_input_to_coordinate(int(input("Which row? (start with 1) ")))
+            column = convert_input_to_coordinate(int(input("Which column? (start with 1) ")))
+            available = check_space_empty(game, row, column)
+        game = add_piece(game, player, row, column)
+        display_game(game)
+        player = switch_player(player)
+        winner = check_winner(game)
+    display_winner(winner)
+
+#Challenge 30 (1)
+
+import random
+
+with open('sowpods.txt', 'r') as f:
+    line = f.read()
+    line_list = line.split("\n")
+    print(random.choice(line_list))
+
+#Challenge 31 (1)
+
+import random
+
+print("Welcome to Hangman!")
+z = 0
+y = []
+w = []
+x = 0
+with open('sowpods.txt', 'r') as f:
+    line = f.read()
+    line_list = line.split("\n")
+    a = random.choice(line_list)
+    b = len(a)
+    for i in range(1, b+1):
+        d = print("_ ", end="")
+        z+=1
+        if z > 0:
+            y.append("_")
+user = input("\nGuess your letter: ").upper()
+print(a)
+print(user)
+if __name__ == "__main__":
+    if user in a:
+        for pos, char in enumerate(a):
+            if char == user:
+                y[int(pos)] = char
+            else:
+                w.append(char)
+    g = ""
+    for i in y:
+        g += i + ''
+
+    if user not in y:
+        print("Incorrect!")
+    elif user in y:
+        print(g)
+    else:
+        pass
+
+
+#Challenge 32 (1)
+
+import random
+import time
+z = 0
+y = []
+w = []
+x = 0
+print("Welcome to Hangman!")
+with open('sowpods.txt', 'r') as f:
+    line = f.read()
+    line_list = line.split("\n")
+    a = random.choice(line_list)
+    b = len(a)
+    for i in range(1, b + 1):
+        d = print("_ ", end="")
+        z += 1
+        if z > 0:
+            y.append("_")
+while True:
+    user = input("\nGuess your letter: ").upper()
+    if __name__ == "__main__":
+        if user in a:
+            for pos, char in enumerate(a):
+                if char == user:
+                    y[int(pos)] = char
+                else:
+                    w.append(char)
+        f = ""
+        for i in y:
+            f += i + ''
+
+        if user not in y:
+            print("Incorrect!", end=' ')
+            x += 1
+            print("Guess: " + str(x) + "")
+            if x == 6:
+                print("You lose!")
+                time.sleep(2)
+                h = input("Hey! Do you want to play again? Type Y to play again: ").upper()
+                if h == "Y":
+                    z = 0
+                    w = []
+                    x = 0
+                    continue
+                else:
+                    break
+        elif user in y:
+            print(f)
+            x += 1
+            print("Guess: " + str(x) + "")
+            if x == 6:
+                print("You lose!")
+                time.sleep(2)
+                h = input("Hey! Do you want to play again? Type Y to play again: ").upper()
+                if h == "Y":
+                    z = 0
+                    w = []
+                    x = 0
+                    continue
+                else:
+                    break
+        else:
+            pass
